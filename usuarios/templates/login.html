@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+     <!-- Title Meta -->
+     <meta charset="utf-8" />
+     <title>Sign In</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="A fully responsive premium admin dashboard template" />
+     <meta name="author" content="Techzaa" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+     <!-- Vendor css (Require in all Page) -->
+     <link href="{% static 'assets/css/vendor.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Icons css (Require in all Page) -->
+     <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- App css (Require in all Page) -->
+     <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Theme Config js (Require in all Page) -->
+     <script src="{% static 'assets/js/config.js' %}"></script>
+</head>
+
+<body class="h-100">
+     <div class="d-flex flex-column h-100 p-3">
+          <div class="d-flex flex-column flex-grow-1">
+               <div class="row h-100">
+                    <div class="col-xxl-7">
+                         <div class="row justify-content-center h-100">
+                              <div class="col-lg-6 py-lg-5">
+                                   <div class="d-flex flex-column h-100 justify-content-center">
+                                    <div class="auth-logo mb-4 text-center">
+                                        <a href="index.html" class="logo-dark">
+                                            <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="img-fluid" style="height: 150px;" alt="logo dark"> <!-- Aumentei o tamanho -->
+                                        </a>
+                                    
+                                        <a href="index.html" class="logo-light">
+                                            <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="img-fluid" style="height: 150px;" alt="logo light"> <!-- Aumentei o tamanho -->
+                                        </a>
+                                    </div>
+                                    
+                                    
+
+                                        <h2 class="fw-bold fs-32 text-center text-primary mb-4">Bem-vindo ao Sistema Bibliotecário</h2>
+
+                                        <p class="text-muted mt-1 mb-4">Digite seu endereço de e-mail e senha para acessar o painel de administração.</p>
+                                        <div class="conta" >
+                                            <div class="text-center">
+                                                    {% if status == '1' %}
+                                                        <div class="alert alert-success preto" role="alert">
+                                                            email ou senha invalidos 
+                                                        </div>
+                                                    {% endif %}
+                                                
+                                                    {% if status == '2' %}
+                                                        <div class="alert alert-success" role="alert">
+                                                            faca o login antes de tentar acessar o sistema
+                                                        </div>
+                                                    {% endif %}
+                                            
+                                                    {% if status == '0' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            Cadastro realizado com sucesso!
+                                                        </div>
+                                                    {% endif %} 
+                                                    {% if status == '9' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            Nome e Email nao podem estar vazios!
+                                                        </div>
+                                                    {% endif %} 
+                                                
+                                                    {% if status == '10' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            sua senha deve ter pelo menos 8 carateres!
+                                                        </div>
+                                                    {% endif %}
+                                                
+                                                    {% if status == '11' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            usuario ja existe no sistema!
+                                                        </div>
+                                                    {% endif %} 
+                                                
+                                                    {% if status == '4' %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            Erro interno do sistema!
+                                                        </div>
+                                                    {% endif %}
+                                            </div>
+                                
+                                        </div>
+                                        <div class="mb-5">
+                                             <form action="{% url 'valida_login_cliente' %}" class="authentication-form" method="POST"> 
+                                                {% csrf_token %}
+                                                  <div class="mb-3">
+                                                       <label class="form-label" for="example-email">Email</label>
+                                                       <input type="email" id="example-email" name="email" class="form-control bg-" placeholder="Digite seu email">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                       <a href="auth-password.html" class="float-end text-muted text-unline-dashed ms-1">Redefinir senha</a>
+                                                       <label class="form-label" for="example-password">Senha</label>
+                                                       <input name="senha" type="text" id="example-password" class="form-control" placeholder="Digite sua senha">
+                                                  </div>
+                                                  <div class="mb-3">
+                                                       <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="checkbox-signin">
+                                                            <label class="form-check-label" for="checkbox-signin">Lembrar de mim</label>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="mb-1 text-center d-grid">
+                                                       <button class="btn btn-soft-primary" type="submit">Entrar</button>
+                                                  </div>
+                                             </form>
+                                        </div>
+
+                                        <p class="text-danger text-center">Não tem uma conta? <a href="{% url 'cadastro' %}" class="text-dark fw-bold ms-1">Cadastre-se</a></p>
+                                   </div>
+                              </div>
+
+                         </div>
+                    </div>
+
+                    <div class="col-xxl-5 d-none d-xxl-flex">
+                         <div class="card h-100 mb-0 overflow-hidden">
+                              <div class="d-flex flex-column h-100">
+                                <img  src="{% static 'assets/images/young-student-learning-library.jpg' %}" alt="" class="w-100 h-100">
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <!-- Vendor Javascript (Require in all Page) -->
+     <script src="{% static 'assets/js/vendor.js' %}"></script>
+
+     <!-- App Javascript (Require in all Page) -->
+     <script src="{% static 'assets/js/app.js' %}"></script>
+
+</body>
+
+</html>

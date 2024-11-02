@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!--<< Header Area >>-->
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="gramentheme">
+    <meta name="description" content="Bookle - Book Store WooCommerce Html Template ">
+    <!-- ======== Page title ============ -->
+    <title>Eroo</title>
+    <!--<< Favcion >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/bootstrap.min.css' %}">
+    <!--<< All Min Css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/all.min.css' %}">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/animate.css' %}">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/magnific-popup.css' %}">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/meanmenu.css' %}">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/swiper-bundle.min.css' %}">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/nice-select.css' %}">
+    <!--<< Icomoon.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/icomoon.css' %}">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="{% static 'assets2/css/main.css' %}">
+</head>
+
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader start -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner">
+            </div>
+            <div class="txt-loading">
+                <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
+                <span data-text-preloader="S" class="letters-loading">
+                    S
+                </span>
+                <span data-text-preloader="P" class="letters-loading">
+                    P
+                </span>
+                <span data-text-preloader="K" class="letters-loading">
+                    K
+                </span>
+                
+            </div>
+            <p class="text-center">processando</p>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back To Top start -->
+    <button id="back-top" class="back-to-top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+
+    <!-- Breadcumb Section Start -->
+    <div class="breadcrumb-wrapper">
+        <div class="book1">
+            <img src="{% static 'assets2/img/hero/book1.png' %}" alt="livro">
+        </div>
+        <div class="book2">
+            <img src="{% static 'assets2/img/hero/book2.png' %}" alt="livro">
+        </div>
+        <div class="container">
+            <div class="page-heading">
+                <h1>Página de Erro</h1>
+                <div class="page-header">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+   <!-- Seção de Erro Início -->
+<section class="Error-section section-padding fix">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="error-items">
+                    <div class="error-image wow fadeInUp" data-wow-delay=".3s">
+                        <img src="{% static 'assets2/img/404.png' %}" alt="img">
+                    </div>
+                    <h2 class="wow fadeInUp" data-wow-delay=".5s">
+                        <span>Ops!</span> Página não encontrada
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-delay=".7s">A página que você está procurando não existe</p>
+                    <a href="{% url 'Alunos' %}" class="theme-btn wow fadeInUp" data-wow-delay=".8s">
+                        Voltar para a Página Inicial
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+     <!--<< All JS Plugins >>-->
+<script src="{% static 'assets2/js/jquery-3.7.1.min.js' %}"></script>
+<!--<< Viewport Js >>-->
+<script src="{% static 'assets2/js/viewport.jquery.js' %}"></script>
+<!--<< Bootstrap Js >>-->
+<script src="{% static 'assets2/js/bootstrap.bundle.min.js' %}"></script>
+<!--<< Nice Select Js >>-->
+<script src="{% static 'assets2/js/jquery.nice-select.min.js' %}"></script>
+<!--<< Waypoints Js >>-->
+<script src="{% static 'assets2/js/jquery.waypoints.js' %}"></script>
+<!--<< Counterup Js >>-->
+<script src="{% static 'assets2/js/jquery.counterup.min.js' %}"></script>
+<!--<< Swiper Slider Js >>-->
+<script src="{% static 'assets2/js/swiper-bundle.min.js' %}"></script>
+<!--<< MeanMenu Js >>-->
+<script src="{% static 'assets2/js/jquery.meanmenu.min.js' %}"></script>
+<!--<< Magnific Popup Js >>-->
+<script src="{% static 'assets2/js/jquery.magnific-popup.min.js' %}"></script>
+<!--<< Wow Animation Js >>-->
+<script src="{% static 'assets2/js/wow.min.js' %}"></script>
+<!-- Gsap -->
+<script src="{% static 'assets2/js/gsap.min.js' %}"></script>
+<!--<< Main.js >>-->
+<script src="{% static 'assets2/js/main.js' %}"></script>
+
+</body>
+
+</html>

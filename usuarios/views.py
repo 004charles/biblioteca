@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Usuarios
+from .models import Usuarios, Livros
+from django.db.models import Count
 
 
 def index(request):
@@ -64,4 +65,29 @@ def valida_login_cliente(request):
 
 def inicio(request):
     return render(request, 'pagina.html')
+
+def emprestimo(request):
+    return render(request, 'emprestimo.html')
+
+def devolucao(request):
+    return render(request, 'devolucao.html')
+
+
+def user(request):
+    return render(request, 'usuarios.html')
+
+def livros(request):
+    return render(request, 'livros.html')
+
+
+def livros_mais_emprestados(request):
+    # Agrupa os livros que foram emprestados e conta o número de vezes que foram emprestados
+    livros = (Livros.objects
+              .filter(emprestado=True)
+              .values('nome')
+              .annotate(total_emprestimos=Count('id'))
+              .order_by('-total_emprestimos'))
+
+    return render(request, 'emprestimo.html', {'livros_mais_emprestados': livros})
+
 

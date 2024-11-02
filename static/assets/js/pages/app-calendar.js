@@ -1,9 +1,3 @@
-/*
-Template Name: Larkon - Responsive 5 Admin Dashboard
-Author: Techzaa
-File: schedule js
-*/
-
 class CalendarSchedule {
 
      constructor() {

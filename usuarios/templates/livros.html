@@ -1,0 +1,911 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Title Meta -->
+     <meta charset="utf-8" />
+     <title>Livros-ISPK</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="A fully responsive premium admin dashboard template" />
+     <meta name="author" content="Techzaa" />
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+     <!-- App favicon -->
+     <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+     <!-- Vendor css (Require in all Page) -->
+     <link href="{% static 'assets/css/vendor.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Icons css (Require in all Page) -->
+     <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- App css (Require in all Page) -->
+     <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+     <!-- Theme Config js (Require in all Page) -->
+     <script src="{% static 'assets/js/config.js' %}"></script>
+</head>
+
+<body>
+
+     <!-- START Wrapper -->
+     <div class="wrapper">
+
+          <!-- ========== Topbar Start ========== -->
+          <header class="topbar">
+            <div class="container-fluid">
+                 <div class="navbar-header">
+                      <div class="d-flex align-items-center">
+                           <!-- Menu Toggle Button -->
+                           <div class="topbar-item">
+                                <button type="button" class="button-toggle-menu me-2">
+                                     <iconify-icon icon="solar:hamburger-menu-broken" class="fs-24 align-middle"></iconify-icon>
+                                </button>
+                           </div>
+
+                           <!-- Menu Toggle Button -->
+                           <div class="topbar-item">
+                                <h4 class="fw-bold topbar-button pe-none text-uppercase mb-0">Bem vindo ao Sistema!</h4>
+                           </div>
+                      </div>
+
+                      <div class="d-flex align-items-center gap-1">
+
+                           <!-- Theme Color (Light/Dark) -->
+                           <div class="topbar-item">
+                                <button type="button" class="topbar-button" id="light-dark-mode">
+                                     <iconify-icon icon="solar:moon-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                                </button>
+                           </div>
+
+                           
+
+                           <!-- Theme Setting -->
+                           <div class="topbar-item d-none d-md-flex">
+                                <button type="button" class="topbar-button" id="theme-settings-btn" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+                                     <iconify-icon icon="solar:settings-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                                </button>
+                           </div>
+
+                           <!-- Activity -->
+                           <div class="topbar-item d-none d-md-flex">
+                                <button type="button" class="topbar-button" id="theme-settings-btn" data-bs-toggle="offcanvas" data-bs-target="#theme-activity-offcanvas" aria-controls="theme-settings-offcanvas">
+                                     <iconify-icon icon="solar:clock-circle-bold-duotone" class="fs-24 align-middle"></iconify-icon>
+                                </button>
+                           </div>
+
+                           <!-- User -->
+                           <div class="dropdown topbar-item">
+                                <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     <span class="d-flex align-items-center">
+                                          <img class="rounded-circle" width="32" src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" alt="avatar-3">
+                                     </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                     <!-- item-->
+                                     <h6 class="dropdown-header">Bem Vindo Carlos Muquissi!</h6>
+                                     <a class="dropdown-item" href="#">
+                                          <i class="bx bx-user-circle text-muted fs-18 align-middle me-1"></i><span class="align-middle">Perfil</span>
+                                     </a>
+                                    
+
+                                     <div class="dropdown-divider my-1"></div>
+
+                                     <a class="dropdown-item text-danger" href="#">
+                                          <i class="bx bx-log-out fs-18 align-middle me-1"></i><span class="align-middle">Logout</span>
+                                     </a>
+                                </div>
+                           </div>
+
+                           <!-- App Search-->
+                           <form class="app-search d-none d-md-block ms-2">
+                                <div class="position-relative">
+                                     <input type="search" class="form-control" placeholder="Pesquisar" autocomplete="off" value="">
+                                     <iconify-icon icon="solar:magnifer-linear" class="search-widget-icon"></iconify-icon>
+                                </div>
+                           </form>
+                      </div>
+                 </div>
+            </div>
+       </header>
+
+
+          <!-- Right Sidebar (Theme Settings) -->
+          <div>
+            <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
+                 <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
+                      <h5 class="text-white m-0">configuracoes de Tema</h5>
+                      <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                 </div>
+
+                 <div class="offcanvas-body p-0">
+                     <div data-simplebar class="h-100">
+                         <div class="p-3 settings-bar">
+                 
+                             <div>
+                                 <h5 class="mb-3 font-16 fw-semibold">Esquema de Cores</h5>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-light" value="light">
+                                     <label class="form-check-label" for="layout-color-light">Claro</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-dark" value="dark">
+                                     <label class="form-check-label" for="layout-color-dark">Escuro</label>
+                                 </div>
+                             </div>
+                 
+                             <div>
+                                 <h5 class="my-3 font-16 fw-semibold">Cor da Barra Superior</h5>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                                     <label class="form-check-label" for="topbar-color-light">Claro</label>
+                                 </div>
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                                     <label class="form-check-label" for="topbar-color-dark">Escuro</label>
+                                 </div>
+                             </div>
+                 
+                             <div>
+                                 <h5 class="my-3 font-16 fw-semibold">Cor do Menu</h5>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-color" id="leftbar-color-light" value="light">
+                                     <label class="form-check-label" for="leftbar-color-light">Claro</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-color" id="leftbar-color-dark" value="dark">
+                                     <label class="form-check-label" for="leftbar-color-dark">Escuro</label>
+                                 </div>
+                             </div>
+                 
+                             <div>
+                                 <h5 class="my-3 font-16 fw-semibold">Tamanho da Sidebar</h5>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-default" value="default">
+                                     <label class="form-check-label" for="leftbar-size-default">Padrão</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small" value="condensed">
+                                     <label class="form-check-label" for="leftbar-size-small">Condensado</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-hidden" value="hidden">
+                                     <label class="form-check-label" for="leftbar-hidden">Oculto</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small-hover-active" value="sm-hover-active">
+                                     <label class="form-check-label" for="leftbar-size-small-hover-active">Pequeno com Hover Ativo</label>
+                                 </div>
+                 
+                                 <div class="form-check mb-2">
+                                     <input class="form-check-input" type="radio" name="data-menu-size" id="leftbar-size-small-hover" value="sm-hover">
+                                     <label class="form-check-label" for="leftbar-size-small-hover">Pequeno com Hover</label>
+                                 </div>
+                             </div>
+                 
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <div class="offcanvas-footer border-top p-3 text-center">
+                      <div class="row">
+                           <div class="col">
+                                <button type="button" class="btn btn-danger w-100" id="reset-layout">Resetar</button>
+                           </div>
+                      </div>
+                 </div>
+            </div>
+       </div>
+       <!-- ========== Topbar End ========== -->
+
+          <!-- ========== App Menu Start ========== -->
+          <div class="main-nav">
+            <!-- Sidebar Logo -->
+            <div class="logo-box">
+                 <a href="{% url 'index' %}" class="logo-dark">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo dark">
+                 </a>
+
+                 <a href="{% url 'index' %}" class="logo-light">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo light">
+                 </a>
+            </div>
+
+            <!-- Menu Toggle Button (sm-hover) -->
+            <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                 <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+               <ul class="navbar-nav" id="navbar-nav">
+                   
+                   <!-- Título da seção -->
+                   <li class="menu-title">Geral</li>
+                   
+                   <!-- Painel de Controle -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'index' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:home-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Painel de Controle</span>
+                       </a>
+                   </li>
+           
+                   <!-- Livros -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'livros' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:book-stack-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Livros</span>
+                       </a>
+                   </li>
+           
+                   <!-- Registro de Empréstimos -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'emprestimo' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:document-check-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Registro de Empréstimos</span>
+                       </a>
+                   </li>
+           
+                   <!-- Devolução de Livros -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'devolucao' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:document-return-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Devolução de Livros</span>
+                       </a>
+                   </li>
+           
+                   <!-- Livros Mais Emprestados -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'livros' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:star-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Livros Mais Emprestados</span>
+                       </a>
+                   </li>
+           
+                   <!-- Usuários Ativos -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'user' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:user-check-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Usuários Ativos</span>
+                       </a>
+                   </li>
+           
+                   <!-- Usuários Menos Ativos -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="{% url 'user' %}">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:user-minus-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Usuários Menos Ativos</span>
+                       </a>
+                   </li>
+           
+                   <!-- Configurações -->
+                   <li class="nav-item">
+                       <a class="nav-link" href="#">
+                           <span class="nav-icon">
+                               <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
+                           </span>
+                           <span class="nav-text">Configurações</span>
+                       </a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+       <!-- ========== App Menu End ========== -->
+
+          <!-- ==================================================== -->
+          <!-- Start right Content here -->
+          <!-- ==================================================== -->
+          <div class="page-content">
+
+               <!-- Start Container Fluid -->
+               <div class="container-xxl">
+
+                    <div class="row">
+                         <div class="col-lg-3">
+                              <div class="card bg-light-subtle">
+                                   <div class="card-header border-0">
+                                        <div class="search-bar me-3 mb-1">
+                                             <span><i class="bx bx-search-alt"></i></span>
+                                             <input type="search" class="form-control" id="search" placeholder="pesquisar...">
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="card">
+                                   <div class="card-body border-light">
+                                        <a href="product-grid.html#" class="btn-link d-flex align-items-center text-dark bg-light p-2 rounded fw-medium fs-16 mb-0" data-bs-toggle="collapse" data-bs-target="#categories" aria-expanded="false" aria-controls="other">Categories
+                                             <i class='bx bx-chevron-down ms-auto fs-20'></i>
+                                        </a>
+                                        <div id="categories" class="collapse show">
+                                             <div class="categories-list d-flex flex-column gap-2 mt-2">
+                                                 <ul class="list-unstyled">
+                                                     <li><a href="#" class="category-link">Desenvolvimento Web</a></li>
+                                                     <li><a href="#" class="category-link">Desenvolvimento Mobile</a></li>
+                                                     <li><a href="#" class="category-link">Ciência de Dados</a></li>
+                                                     <li><a href="#" class="category-link">Inteligência Artificial</a></li>
+                                                     <li><a href="#" class="category-link">Desenvolvimento de Jogos</a></li>
+                                                     <li><a href="#" class="category-link">Segurança da Informação</a></li>
+                                                     <li><a href="#" class="category-link">Banco de Dados</a></li>
+                                                     <li><a href="#" class="category-link">DevOps</a></li>
+                                                     <li><a href="#" class="category-link">Programação para IoT</a></li>
+                                                     <li><a href="#" class="category-link">Desenvolvimento de Software</a></li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                         
+
+                                        <div class="mt-4">
+                                             <a href="product-grid.html#" class="btn-link d-flex align-items-center text-dark bg-light p-2 rounded fw-medium fs-16 mb-0" data-bs-toggle="collapse" data-bs-target="#price" aria-expanded="false" aria-controls="other">Product Price
+                                                  <i class='bx bx-chevron-down ms-auto fs-20'></i>
+                                             </a>
+                                             
+                                        </div>
+                                    
+                                   </div>
+                                   
+                              </div>
+                         </div>
+                         <div class="col-lg-9">
+                              <div class="card bg-light-subtle">
+                                   <div class="card-header border-0">
+                                        <div class="row justify-content-between align-items-center">
+                                             
+                                             <div class="col-lg-6">
+                                                  <div class="text-md-end mt-3 mt-md-0">
+                                                       
+<!-- Botão para abrir o modal -->
+<a href="#" class="btn btn-success me-1" data-bs-toggle="modal" data-bs-target="#cadastroLivroModal">
+     <i class="bx bx-plus"></i> Novo Livro
+ </a>
+ 
+ <!-- Modal -->
+ <div class="modal fade" id="cadastroLivroModal" tabindex="-1" aria-labelledby="cadastroLivroModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="cadastroLivroModalLabel">Cadastro de Livro</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <form id="formCadastroLivro">
+                     <div class="mb-3">
+                         <label for="nome" class="form-label">Nome do Livro</label>
+                         <input type="text" class="form-control" id="nome" required>
+                     </div>
+                     <div class="mb-3">
+                         <label for="autor" class="form-label">Autor</label>
+                         <input type="text" class="form-control" id="autor" required>
+                     </div>
+                     <div class="mb-3">
+                         <label for="categoria" class="form-label">Categoria</label>
+                         <input type="text" class="form-control" id="categoria" required>
+                     </div>
+                     <div class="mb-3">
+                         <label for="dataCadastro" class="form-label">Data de Cadastro</label>
+                         <input type="date" class="form-control" id="dataCadastro" required>
+                     </div>
+                     <div class="mb-3">
+                         <label for="tempoDuracao" class="form-label">Tempo de Duração (dias)</label>
+                         <input type="number" class="form-control" id="tempoDuracao" required>
+                     </div>
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                 <button type="button" class="btn btn-primary" onclick="submitForm()">Salvar</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ 
+ <script>
+ function submitForm() {
+     // Obter dados do formulário
+     const nome = document.getElementById('nome').value;
+     const autor = document.getElementById('autor').value;
+     const categoria = document.getElementById('categoria').value;
+     const dataCadastro = document.getElementById('dataCadastro').value;
+     const tempoDuracao = document.getElementById('tempoDuracao').value;
+ 
+     // Aqui você pode fazer algo com os dados, como enviar para o servidor usando fetch ou AJAX
+     console.log({ nome, autor, categoria, dataCadastro, tempoDuracao });
+ 
+     // Fechar o modal após salvar
+     const modal = bootstrap.Modal.getInstance(document.getElementById('cadastroLivroModal'));
+     modal.hide();
+ 
+     // Opcional: limpar o formulário
+     document.getElementById('formCadastroLivro').reset();
+ }
+ </script>
+                                                   </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                         <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                         <div class="card-body bg-light-subtle rounded-bottom">
+                                              <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                              <div class="my-1">
+                                                   <div class="d-flex gap-2 align-items-center">
+                                                        <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star-half"></i>
+                                                             </li>
+                                                        </ul>
+                                                        <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                                   </div>
+                                              </div>
+                                              
+                                              
+                                         </div>
+                                         <span class="position-absolute top-0 end-0 p-3">
+                                              <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                         </span>
+                                    </div>
+                               </div>
+                                   <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                         <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                         <div class="card-body bg-light-subtle rounded-bottom">
+                                              <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                              <div class="my-1">
+                                                   <div class="d-flex gap-2 align-items-center">
+                                                        <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star-half"></i>
+                                                             </li>
+                                                        </ul>
+                                                        <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                                   </div>
+                                              </div>
+                                              
+                                              
+                                         </div>
+                                         <span class="position-absolute top-0 end-0 p-3">
+                                              <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                         </span>
+                                    </div>
+                               </div>
+                               <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                     <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                     <div class="card-body bg-light-subtle rounded-bottom">
+                                          <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                          <div class="my-1">
+                                               <div class="d-flex gap-2 align-items-center">
+                                                    <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star-half"></i>
+                                                         </li>
+                                                    </ul>
+                                                    <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                               </div>
+                                          </div>
+                                          
+                                          
+                                     </div>
+                                     <span class="position-absolute top-0 end-0 p-3">
+                                          <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                     </span>
+                                </div>
+                           </div>
+                                   <div class="col-md-6 col-xl-3">
+                                        <div class="card">
+                                             <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                             <div class="card-body bg-light-subtle rounded-bottom">
+                                                  <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                                  <div class="my-1">
+                                                       <div class="d-flex gap-2 align-items-center">
+                                                            <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                                 <li>
+                                                                      <i class="bx bxs-star"></i>
+                                                                 </li>
+                                                                 <li>
+                                                                      <i class="bx bxs-star"></i>
+                                                                 </li>
+                                                                 <li>
+                                                                      <i class="bx bxs-star"></i>
+                                                                 </li>
+                                                                 <li>
+                                                                      <i class="bx bxs-star"></i>
+                                                                 </li>
+                                                                 <li>
+                                                                      <i class="bx bxs-star-half"></i>
+                                                                 </li>
+                                                            </ul>
+                                                            <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                                       </div>
+                                                  </div>
+                                                  
+                                                  
+                                             </div>
+                                             <span class="position-absolute top-0 end-0 p-3">
+                                                  <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                             </span>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                         <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                         <div class="card-body bg-light-subtle rounded-bottom">
+                                              <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                              <div class="my-1">
+                                                   <div class="d-flex gap-2 align-items-center">
+                                                        <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star"></i>
+                                                             </li>
+                                                             <li>
+                                                                  <i class="bx bxs-star-half"></i>
+                                                             </li>
+                                                        </ul>
+                                                        <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                                   </div>
+                                              </div>
+                                              
+                                              
+                                         </div>
+                                         <span class="position-absolute top-0 end-0 p-3">
+                                              <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                         </span>
+                                    </div>
+                               </div>
+                               <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                     <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                     <div class="card-body bg-light-subtle rounded-bottom">
+                                          <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                          <div class="my-1">
+                                               <div class="d-flex gap-2 align-items-center">
+                                                    <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star"></i>
+                                                         </li>
+                                                         <li>
+                                                              <i class="bx bxs-star-half"></i>
+                                                         </li>
+                                                    </ul>
+                                                    <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                               </div>
+                                          </div>
+                                          
+                                          
+                                     </div>
+                                     <span class="position-absolute top-0 end-0 p-3">
+                                          <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                     </span>
+                                </div>
+                           </div>
+                           <div class="col-md-6 col-xl-3">
+                            <div class="card">
+                                 <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                                 <div class="card-body bg-light-subtle rounded-bottom">
+                                      <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                      <div class="my-1">
+                                           <div class="d-flex gap-2 align-items-center">
+                                                <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                     <li>
+                                                          <i class="bx bxs-star"></i>
+                                                     </li>
+                                                     <li>
+                                                          <i class="bx bxs-star"></i>
+                                                     </li>
+                                                     <li>
+                                                          <i class="bx bxs-star"></i>
+                                                     </li>
+                                                     <li>
+                                                          <i class="bx bxs-star"></i>
+                                                     </li>
+                                                     <li>
+                                                          <i class="bx bxs-star-half"></i>
+                                                     </li>
+                                                </ul>
+                                                <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                           </div>
+                                      </div>
+                                      
+                                      
+                                 </div>
+                                 <span class="position-absolute top-0 end-0 p-3">
+                                      <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                                 </span>
+                            </div>
+                       </div>
+                       <div class="col-md-6 col-xl-3">
+                        <div class="card">
+                             <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                             <div class="card-body bg-light-subtle rounded-bottom">
+                                  <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                                  <div class="my-1">
+                                       <div class="d-flex gap-2 align-items-center">
+                                            <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                                 <li>
+                                                      <i class="bx bxs-star"></i>
+                                                 </li>
+                                                 <li>
+                                                      <i class="bx bxs-star"></i>
+                                                 </li>
+                                                 <li>
+                                                      <i class="bx bxs-star"></i>
+                                                 </li>
+                                                 <li>
+                                                      <i class="bx bxs-star"></i>
+                                                 </li>
+                                                 <li>
+                                                      <i class="bx bxs-star-half"></i>
+                                                 </li>
+                                            </ul>
+                                            <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                       </div>
+                                  </div>
+                                  
+                                  
+                             </div>
+                             <span class="position-absolute top-0 end-0 p-3">
+                                  <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                             </span>
+                        </div>
+                   </div>
+                   <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                         <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                         <div class="card-body bg-light-subtle rounded-bottom">
+                              <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                              <div class="my-1">
+                                   <div class="d-flex gap-2 align-items-center">
+                                        <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                             <li>
+                                                  <i class="bx bxs-star"></i>
+                                             </li>
+                                             <li>
+                                                  <i class="bx bxs-star"></i>
+                                             </li>
+                                             <li>
+                                                  <i class="bx bxs-star"></i>
+                                             </li>
+                                             <li>
+                                                  <i class="bx bxs-star"></i>
+                                             </li>
+                                             <li>
+                                                  <i class="bx bxs-star-half"></i>
+                                             </li>
+                                        </ul>
+                                        <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                                   </div>
+                              </div>
+                              
+                              
+                         </div>
+                         <span class="position-absolute top-0 end-0 p-3">
+                              <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                         </span>
+                    </div>
+               </div>
+               <div class="col-md-6 col-xl-3">
+                <div class="card">
+                     <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                     <div class="card-body bg-light-subtle rounded-bottom">
+                          <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                          <div class="my-1">
+                               <div class="d-flex gap-2 align-items-center">
+                                    <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                         <li>
+                                              <i class="bx bxs-star"></i>
+                                         </li>
+                                         <li>
+                                              <i class="bx bxs-star"></i>
+                                         </li>
+                                         <li>
+                                              <i class="bx bxs-star"></i>
+                                         </li>
+                                         <li>
+                                              <i class="bx bxs-star"></i>
+                                         </li>
+                                         <li>
+                                              <i class="bx bxs-star-half"></i>
+                                         </li>
+                                    </ul>
+                                    <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                               </div>
+                          </div>
+                          
+                          
+                     </div>
+                     <span class="position-absolute top-0 end-0 p-3">
+                          <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                     </span>
+                </div>
+           </div>
+           <div class="col-md-6 col-xl-3">
+            <div class="card">
+                 <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+                 <div class="card-body bg-light-subtle rounded-bottom">
+                      <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                      <div class="my-1">
+                           <div class="d-flex gap-2 align-items-center">
+                                <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                     <li>
+                                          <i class="bx bxs-star"></i>
+                                     </li>
+                                     <li>
+                                          <i class="bx bxs-star"></i>
+                                     </li>
+                                     <li>
+                                          <i class="bx bxs-star"></i>
+                                     </li>
+                                     <li>
+                                          <i class="bx bxs-star"></i>
+                                     </li>
+                                     <li>
+                                          <i class="bx bxs-star-half"></i>
+                                     </li>
+                                </ul>
+                                <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                           </div>
+                      </div>
+                      
+                      
+                 </div>
+                 <span class="position-absolute top-0 end-0 p-3">
+                      <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+                 </span>
+            </div>
+       </div>
+       <div class="col-md-6 col-xl-3">
+        <div class="card">
+             <img src="{% static 'assets2/img/book/01.png' %}" alt="" class="img-fluid ">
+             <div class="card-body bg-light-subtle rounded-bottom">
+                  <a href="product-details.html" class="text-dark fw-medium fs-16">Programas da ciencia da computacao</a>
+                  <div class="my-1">
+                       <div class="d-flex gap-2 align-items-center">
+                            <ul class="d-flex text-warning m-0 fs-18  list-unstyled">
+                                 <li>
+                                      <i class="bx bxs-star"></i>
+                                 </li>
+                                 <li>
+                                      <i class="bx bxs-star"></i>
+                                 </li>
+                                 <li>
+                                      <i class="bx bxs-star"></i>
+                                 </li>
+                                 <li>
+                                      <i class="bx bxs-star"></i>
+                                 </li>
+                                 <li>
+                                      <i class="bx bxs-star-half"></i>
+                                 </li>
+                            </ul>
+                            <p class="mb-0 fw-medium fs-15 text-dark">4.2 <span class="text-muted fs-13">(23 Review)</span></p>
+                       </div>
+                  </div>
+                  
+                  
+             </div>
+             <span class="position-absolute top-0 end-0 p-3">
+                  <button type="button" class="btn btn-soft-danger avatar-sm d-inline-flex align-items-center justify-content-center fs-20 rounded-circle"><iconify-icon icon="solar:heart-broken"></iconify-icon></button>
+             </span>
+        </div>
+   </div>
+
+                              </div>
+
+
+                         </div>
+                    </div>
+
+               </div>
+               <!-- End Container Fluid -->
+
+               <!-- ========== Footer Start ========== -->
+               <footer class="footer">
+                    <div class="container-fluid">
+                         <div class="row">
+                              <div class="col-12 text-center">
+                                   <script>document.write(new Date().getFullYear())</script> &copy; Larkon. Crafted by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <a href="product-grid.html" class="fw-bold footer-text" target="_blank">Techzaa</a>
+                              </div>
+                         </div>
+                    </div>
+               </footer>
+               <!-- ========== Footer End ========== -->
+
+          </div>
+          <!-- ==================================================== -->
+          <!-- End Page Content -->
+          <!-- ==================================================== -->
+
+     </div>
+     <!-- END Wrapper -->
+
+     <!-- Vendor Javascript (Require in all Page) -->
+     <script src="{% static 'assets/js/vendor.js' %}"></script>
+
+     <!-- App Javascript (Require in all Page) -->
+     <script src="{% static 'assets/js/app.js' %}"></script>
+
+     <script src="{% static 'assets/js/pages/product-grid.js' %}"></script>
+</body>
+
+</html>

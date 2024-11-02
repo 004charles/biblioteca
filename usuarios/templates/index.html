@@ -13,7 +13,6 @@
 
      <!-- App favicon -->
      <link rel="shortcut icon" href="assets/images/favicon.ico">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
      <!-- Vendor css (Require in all Page) -->
      <link href="{% static 'assets/css/vendor.min.css' %}" rel="stylesheet" type="text/css" />
@@ -212,82 +211,117 @@
 
           <!-- ========== App Menu Start ========== -->
           <div class="main-nav">
-               <!-- Sidebar Logo -->
-               <div class="logo-box">
-                    <a href="{% url 'index' %}" class="logo-dark">
-                         <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
-                         <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo dark">
-                    </a>
+            <!-- Sidebar Logo -->
+            <div class="logo-box">
+                 <a href="{% url 'index' %}" class="logo-dark">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo dark">
+                 </a>
 
-                    <a href="{% url 'index' %}" class="logo-light">
-                         <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
-                         <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo light">
-                    </a>
-               </div>
+                 <a href="{% url 'index' %}" class="logo-light">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-sm" alt="logo sm">
+                      <img src="{% static 'assets/images/IMG-20241020-WA0012-removebg-preview.png' %}" class="logo-lg" alt="logo light">
+                 </a>
+            </div>
 
-               <!-- Menu Toggle Button (sm-hover) -->
-               <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
-                    <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
-               </button>
+            <!-- Menu Toggle Button (sm-hover) -->
+            <button type="button" class="button-sm-hover" aria-label="Show Full Sidebar">
+                 <iconify-icon icon="solar:double-alt-arrow-right-bold-duotone" class="button-sm-hover-icon"></iconify-icon>
+            </button>
 
-               <div class="scrollbar" data-simplebar>
-                    <ul class="navbar-nav" id="navbar-nav">
+            <div class="scrollbar" data-simplebar>
+                <ul class="navbar-nav" id="navbar-nav">
+                    
+                    <!-- Título da seção -->
+                    <li class="menu-title">Geral</li>
+                    
+                    <!-- Painel de Controle -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:home-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Painel de Controle</span>
+                        </a>
+                    </li>
+            
+                    <!-- Livros -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'livros' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:book-stack-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Livros</span>
+                        </a>
+                    </li>
+            
+                    <!-- Registro de Empréstimos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'emprestimo' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:document-check-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Registro de Empréstimos</span>
+                        </a>
+                    </li>
+            
+                    <!-- Devolução de Livros -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'devolucao' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:document-return-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Devolução de Livros</span>
+                        </a>
+                    </li>
+            
+                    <!-- Livros Mais Emprestados -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'livros' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:star-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Livros Mais Emprestados</span>
+                        </a>
+                    </li>
+            
+                    <!-- Usuários Ativos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:user-check-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Usuários Ativos</span>
+                        </a>
+                    </li>
+            
+                    <!-- Usuários Menos Ativos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user' %}">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:user-minus-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Usuários Menos Ativos</span>
+                        </a>
+                    </li>
+            
+                    <!-- Configurações -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="nav-icon">
+                                <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
+                            </span>
+                            <span class="nav-text">Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            
+       </div>
+       <!-- ========== App Menu End ========== -->
 
-                         <li class="menu-title">General</li>
-
-                         <li class="nav-item">
-                              <a class="nav-link" href="{% url 'index' %}">
-                                   <span class="nav-icon">
-                                        <iconify-icon icon="solar:widget-5-bold-duotone"></iconify-icon>
-                                   </span>
-                                   <span class="nav-text"> painel de controle </span>
-                              </a>
-                         </li>
-
-                         <li class="nav-item">
-                            <a class="nav-link menu-arrow" href="index.html#sidebarLibrary" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLibrary">
-                                <span class="nav-icon">
-                                    <iconify-icon icon="solar:book-bold-duotone"></iconify-icon>
-                                </span>
-                                <span class="nav-text"> Biblioteca </span>
-                            </a>
-                            <div class="collapse" id="sidebarLibrary">
-                                <ul class="nav sub-navbar-nav">
-                                    <li class="sub-nav-item">
-                                        <a class="sub-nav-link" href="#">Registro de Empréstimos</a>
-                                    </li>
-                                    <li class="sub-nav-item">
-                                        <a class="sub-nav-link" href="#">Devolução de Livros</a>
-                                    </li>
-                                    <li class="sub-nav-item">
-                                        <a class="sub-nav-link" href="#">Geração de Relatórios</a>
-                                    </li>
-                                    <li class="sub-nav-item">
-                                        <a class="sub-nav-link" href="#">Livros Mais Emprestados</a>
-                                    </li>
-                                    <li class="sub-nav-item">
-                                        <a class="sub-nav-link" href="#">Usuários Ativos</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-
-                         <li class="nav-item">
-                              <a class="nav-link" href="#">
-                                   <span class="nav-icon">
-                                        <iconify-icon icon="solar:settings-bold-duotone"></iconify-icon>
-                                   </span>
-                                   <span class="nav-text"> configuracoes </span>
-                              </a>
-                         </li>
-
-                         <li class="menu-title mt-2">Usuarios</li>
-
-                    </ul>
-               </div>
-          </div>
-          <!-- ========== App Menu End ========== -->
 
           <!-- ==================================================== -->
           <!-- Start right Content here -->
@@ -598,9 +632,7 @@
                                         <h4 class="card-title">
                                             Pedidos Recentes
                                         </h4>
-                                        <button class="btn btn-sm btn-soft-primary" data-bs-toggle="modal" data-bs-target="#createOrderModal">
-                                            <i class="bx bx-plus me-1"></i>Criar Pedido
-                                        </button>
+                                        
                                     </div>
                                 </div>
                                 <!-- fim do corpo do cartão -->
@@ -611,7 +643,7 @@
                                                 <th class="ps-3">ID do Pedido</th>
                                                 <th>Data</th>
                                                 <th>Livros</th>
-                                                <th>Nome do Cliente</th>
+                                                <th>Aluno</th>
                                                 <th>E-mail</th>
                                                 <th>Número de Telefone</th>
                                                 <th>Endereço</th>
@@ -626,7 +658,7 @@
                                                 </td>
                                                 <td>29 de Abril de 2024</td>
                                                 <td>
-                                                    <img src="{% static 'assets/images/products/product-1(1).png' %}" alt="produto-1(1)" class="img-fluid avatar-sm">
+                                                    <img src="{% static 'assets2/img/book/01.png' %}" alt="produto-1(1)" class="img-fluid avatar-sm">
                                                 </td>
                                                 <td>
                                                     <a href="#">Ana da Silva</a>
@@ -644,7 +676,7 @@
                                                 </td>
                                                 <td>25 de Abril de 2024</td>
                                                 <td>
-                                                    <img src="{% static 'assets/images/products/product-4.png' %}" alt="produto-4" class="img-fluid avatar-sm">
+                                                    <img src="{% static 'assets2/img/book/01.png' %}" alt="produto-4" class="img-fluid avatar-sm">
                                                 </td>
                                                 <td>
                                                     <a href="#">José Eduardo</a>
@@ -662,7 +694,7 @@
                                                 </td>
                                                 <td>25 de Abril de 2024</td>
                                                 <td>
-                                                    <img src="{% static 'assets/images/products/product-5.png' %}" alt="produto-5" class="img-fluid avatar-sm">
+                                                    <img src="{% static 'assets2/img/book/01.png' %}" alt="produto-5" class="img-fluid avatar-sm">
                                                 </td>
                                                 <td>
                                                     <a href="#">Maria Luísa</a>
@@ -680,7 +712,7 @@
                                                 </td>
                                                 <td>21 de Abril de 2024</td>
                                                 <td>
-                                                    <img src="{% static 'assets/images/products/product-6.png' %}" alt="produto-6" class="img-fluid avatar-sm">
+                                                    <img src="{% static 'assets2/img/book/01.png' %}" alt="produto-6" class="img-fluid avatar-sm">
                                                 </td>
                                                 <td>
                                                     <a href="#">Emmanuel J. Delcid</a>
@@ -698,7 +730,7 @@
                                                 </td>
                                                 <td>18 de Abril de 2024</td>
                                                 <td>
-                                                    <img src="{% static 'assets/images/products/product-1(2).png' %}" alt="produto-1(2)" class="img-fluid avatar-sm">
+                                                    <img src="{% static 'assets2/img/book/01.png' %}" alt="produto-1(2)" class="img-fluid avatar-sm">
                                                 </td>
                                                 <td>
                                                     <a href="#">William J. Cook</a>
@@ -727,25 +759,7 @@
                                                 pedidos
                                             </div>
                                         </div>
-                                        <div class="col-sm-auto">
-                                            <ul class="pagination m-0">
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link"><i class="bx bx-left-arrow-alt"></i></a>
-                                                </li>
-                                                <li class="page-item active">
-                                                    <a href="#" class="page-link">1</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link">2</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link">3</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link"><i class="bx bx-right-arrow-alt"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -839,7 +853,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <script>document.write(new Date().getFullYear())</script> &copy; Seguranca by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <span class="fw-bold footer-text">Carlos Muquissi Zangui</span>
+                                <script>document.write(new Date().getFullYear())</script> &copy; Seguranca by <iconify-icon icon="iconamoon:heart-duotone" class="fs-18 align-middle text-danger"></iconify-icon> <span class="fw-bold footer-text">ISPK</span>
                             </div>
                         </div>
                     </div>
